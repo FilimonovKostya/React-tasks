@@ -1,21 +1,27 @@
 import React from 'react';
 import './App.css';
-import UnOff from "./Components/UnOff/UnOff";
+import OnOff from './Components/OnOff/OnOff';
+import UnOnOff from "./Components/UnOnOff/UnOnOff";
+import UnAccordion from "./Components/UnAccordion/UnAccordion";
+import UnRating from "./Components/UnRating/UnRating";
+
 
 function App() {
     return <div>
 
-        <UnOff on={true}/>
-
+        <OnOff on={true}/>
+        <OnOff on={false}/>
+        <hr/>
+        <UnOnOff/>
+        <hr/>
+        <UnAccordion title={'Uncontrolled Accordion'}/>
+        <hr/>
+       <UnRating/>
     </div>
 }
 
 type PageTitleProps = {
     title: string
-}
-
-function PageTitle(props: PageTitleProps) {
-    return <h3>{props.title}</h3>
 }
 
 
