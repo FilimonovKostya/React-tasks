@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 
 
+type UnOnOff = {
+    value:boolean
+    setOn:(value:boolean) => void
+}
 
+function UnOnOff(props:UnOnOff){
 
-function UnOnOff(){
-
-    let [on,setOn] = useState(true)
 
     const wrapperStyle = {
         display:'flex',
@@ -20,7 +22,7 @@ function UnOnOff(){
         padding: '5px',
         margin: '5px',
         cursor:'pointer',
-        backgroundColor: on ? 'lightgreen' : 'white'
+        backgroundColor: props.value ? 'lightgreen' : 'white'
     }
 
     const offStyle = {
@@ -30,7 +32,7 @@ function UnOnOff(){
         padding: '5px',
         margin: '5px',
         cursor:'pointer',
-        backgroundColor: !on ? '#ff7272' : 'white'
+        backgroundColor: !props.value ? '#ff7272' : 'white'
     }
 
     const lightStyle = {
@@ -38,12 +40,12 @@ function UnOnOff(){
         height:'30px',
         border:'1px solid black',
         borderRadius: '50%',
-        backgroundColor: on ? 'lightgreen' : '#ff7272'
+        backgroundColor: props.value ? 'lightgreen' : '#ff7272'
     }
 
     return <div style={wrapperStyle}>
-        <div style={onStyle} onClick={() => setOn(true)}>On</div>
-        <div style={offStyle} onClick={() => setOn(false)}>Off</div>
+        <div style={onStyle} onClick={() => props.setOn(true)}>On</div>
+        <div style={offStyle} onClick={() => props.setOn(false)}>Off</div>
         <div style={lightStyle}/>
     </div>
 }

@@ -1,30 +1,35 @@
 import React, {useState} from "react";
 
+
 type StarProps = {
     selected: boolean
+    setStar: () => void
 
 }
 
 const starStyle = {
-    color: '#673ab7'
+    color: '#ff070e'
 }
 
 export function UnRating() {
 
     let [star,setStar] = useState(0)
 
+
+
     return <div>
-        <Star selected={1 <= star}/> <button onClick={() => setStar(1)}>1</button>
-        <Star selected={2 <= star}/> <button onClick={() => setStar(2)}>2</button>
-        <Star selected={3 <= star}/><button onClick={() => setStar(3)}>3</button>
-        <Star selected={4 <= star}/> <button onClick={() => setStar(4)}>4</button>
-        <Star selected={5 <= star}/><button onClick={() => setStar(5)}>5</button>
+        <Star selected={1 <= star} setStar={() => setStar(1)} />
+        <Star selected={2 <= star} setStar={() => setStar(2)} />
+        <Star selected={3 <= star} setStar={() => setStar(3)} />
+        <Star selected={4 <= star} setStar={() => setStar(4)} />
+        <Star selected={5 <= star} setStar={() => setStar(5)} />
     </div>
 }
 
 function Star(props: StarProps) {
+    debugger
     return <>
-        <span>{props.selected ? <b style={starStyle}> ★ </b> : ' ★ '}</span>
+        <span onClick={() => props.setStar()}>{props.selected ? <b style={starStyle}> ★ </b> : ' ★ '}</span>
     </>
 }
 

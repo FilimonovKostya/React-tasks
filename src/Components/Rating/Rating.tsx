@@ -1,31 +1,36 @@
 import React from "react";
 
-type StarProps = {
-    selected: boolean
+export type ValueTypeProps = 0 | 1 | 2 | 3 | 4 | 5
 
-}
-
-type RatingProps = {
-    value: number
+export type RatingPropsType = {
+    value: ValueTypeProps
+    setValue:(value: ValueTypeProps) => void
 }
 
 const starStyle = {
     color: '#673ab7'
 }
 
-export function Rating(props: RatingProps) {
+export function Rating(props: RatingPropsType) {
     return <div>
-        <Star selected={props.value >= 1}/>
-        <Star selected={props.value >= 2}/>
-        <Star selected={props.value >= 3}/>
-        <Star selected={props.value >= 4}/>
-        <Star selected={props.value >= 5}/>
+        <Star selected={1 <= props.value} value={1} onClick={props.setValue}/>
+        <Star selected={2 <= props.value} value={2} onClick={props.setValue}/>
+        <Star selected={3 <= props.value} value={3} onClick={props.setValue}/>
+        <Star selected={4 <= props.value} value={4} onClick={props.setValue}/>
+        <Star selected={5 <= props.value} value={5} onClick={props.setValue}/>
+
     </div>
 }
 
-function Star(props: StarProps) {
+type StarPropsType = {
+    selected:boolean
+    value:ValueTypeProps
+    onClick: (value: ValueTypeProps) => void
+}
+
+function Star(props:StarPropsType) {
     return <>
-        <span>{props.selected ? <b style={starStyle}> ★ </b> : ' ★ '}</span>
+        <span onClick={() => props.onClick(props.value)}>{props.selected ? <b style={starStyle}> ★ </b> : ' ★ '}</span>
     </>
 }
 

@@ -1,22 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import OnOff from './Components/OnOff/OnOff';
+import Accordion from "./Components/Accordion/Accordion";
 import UnOnOff from "./Components/UnOnOff/UnOnOff";
-import UnAccordion from "./Components/UnAccordion/UnAccordion";
-import UnRating from "./Components/UnRating/UnRating";
 
 
 function App() {
-    return <div>
 
-        <OnOff on={true}/>
-        <OnOff on={false}/>
+    // let [ratingValue,setRatingValue] = useState<ValueTypeProps>(1)
+    let [collapse, setCollapse] = useState(true)
+    let [on,setOn] = useState(true)
+
+    return <div className={'app'}>
+        {/*<Rating value={ratingValue} setValue={setRatingValue} />*/}
+        {/*<hr/>*/}
+        {/*<UnRating/>*/}
+        {/*<hr/>*/}
+        <Accordion title={'Hey'} collapse={collapse} onClick={setCollapse}/>
         <hr/>
-        <UnOnOff/>
-        <hr/>
-        <UnAccordion title={'Uncontrolled Accordion'}/>
-        <hr/>
-       <UnRating/>
+        <UnOnOff value={on} setOn={setOn}/>
     </div>
 }
 
