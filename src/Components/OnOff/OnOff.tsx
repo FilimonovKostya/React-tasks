@@ -2,11 +2,12 @@ import React from "react";
 
 type OnProps = {
     on:boolean
+    onChange:(value:boolean) => void
 }
 
 
 
-function OnOff(props:OnProps){
+export function OnOff(props:OnProps){
 
     const wrapperStyle = {
         display:'flex',
@@ -41,10 +42,9 @@ function OnOff(props:OnProps){
     }
 
     return <div style={wrapperStyle}>
-        <div style={onStyle} >On</div>
-        <div style={offStyle}>Off</div>
+        <div style={onStyle} onClick={() => props.onChange(true)}>On</div>
+        <div style={offStyle}  onClick={() => props.onChange(false)}>Off</div>
         <div style={lightStyle}/>
     </div>
 }
 
-export default OnOff

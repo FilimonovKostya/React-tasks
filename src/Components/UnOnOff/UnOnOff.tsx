@@ -6,7 +6,7 @@ type UnOnOff = {
     setOn:(value:boolean) => void
 }
 
-function UnOnOff(props:UnOnOff){
+export function UnOnOff(props:UnOnOff){
 
 
     const wrapperStyle = {
@@ -49,5 +49,3 @@ function UnOnOff(props:UnOnOff){
         <div style={lightStyle}/>
     </div>
 }
-
-export default UnOnOff

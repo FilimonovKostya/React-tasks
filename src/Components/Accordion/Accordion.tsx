@@ -31,4 +31,3 @@ function AccordionBody() {
     </ul>
 }
 
-export default Accordion

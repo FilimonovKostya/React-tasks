@@ -23,11 +23,11 @@ type AccordionTitleProps = {
     onClick: () => void
 }
 
-function AccordionTitle(props: AccordionTitleProps) {
+export function AccordionTitle(props: AccordionTitleProps) {
     return <div><h3 onClick={props.onClick}>-- {props.message} --</h3> </div>
 }
 
-function AccordionBody() {
+export function AccordionBody() {
     return <ul>
         <li>1</li>
         <li>2</li>
