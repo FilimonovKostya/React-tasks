@@ -1,17 +1,10 @@
-import React, {useState} from "react";
-import {action} from "@storybook/addon-actions";
-import {OnOff} from './OnOff'
+import {OnOff} from "./OnOff";
+import React from "react";
 
-export default {
+export default  {
     title: 'OnOff',
-    component: OnOff,
+    component: OnOff
 }
 
-export const OnMode = () => <OnOff on={true} onChange={action('on or off clicked')}/>
-export const OffMode = () => <OnOff on={false} onChange={action('on or off clicked')}/>
-
-export const ModeChanging = () => {
-    const [value, setValue] = useState<boolean>(true)
-    return <OnOff on={value} onChange={setValue}/>
-}
-
+export const On = () => <OnOff on={true}/>
+export const Off = () => <OnOff on={false}/>

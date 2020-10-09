@@ -1,24 +1,23 @@
 import React from "react";
 
 type OnProps = {
-    on:boolean
-    onChange:(value:boolean) => void
+    on: boolean
+
 }
 
 
-
-export function OnOff(props:OnProps){
+export function OnOff(props: OnProps) {
 
     const wrapperStyle = {
-        display:'flex',
+        display: 'flex',
         padding: '10px'
 
     }
 
     const onStyle = {
         width: '40px',
-        height:'30px',
-        border:'1px solid black',
+        height: '30px',
+        border: '1px solid black',
         padding: '5px',
         margin: '5px',
         backgroundColor: props.on ? 'lightgreen' : 'white'
@@ -26,8 +25,8 @@ export function OnOff(props:OnProps){
 
     const offStyle = {
         width: '40px',
-        height:'30px',
-        border:'1px solid black',
+        height: '30px',
+        border: '1px solid black',
         padding: '5px',
         margin: '5px',
         backgroundColor: !props.on ? '#ff7272' : 'white'
@@ -35,15 +34,15 @@ export function OnOff(props:OnProps){
 
     const lightStyle = {
         width: '30px',
-        height:'30px',
-        border:'1px solid black',
+        height: '30px',
+        border: '1px solid black',
         borderRadius: '50%',
         backgroundColor: props.on ? 'lightgreen' : '#ff7272'
     }
 
     return <div style={wrapperStyle}>
-        <div style={onStyle} onClick={() => props.onChange(true)}>On</div>
-        <div style={offStyle}  onClick={() => props.onChange(false)}>Off</div>
+        <div style={onStyle}>On</div>
+        <div style={offStyle}>Off</div>
         <div style={lightStyle}/>
     </div>
 }

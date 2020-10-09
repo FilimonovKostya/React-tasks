@@ -1,11 +1,9 @@
+import UnAccordion from "./UnAccordion";
 import React from "react";
-import {UnAccordion} from "./UnAccordion";
-
-
 
 export default {
-    title   : 'Not Controlled Accordion',
+    title:'Changing Accordion',
     component: UnAccordion
 }
 
-export const UncontrolledAccordion = () => <UnAccordion title={'Click me please'}/>
+export const ChangingAccordion = () => <UnAccordion title={'Кликни пожалуйста'} />
