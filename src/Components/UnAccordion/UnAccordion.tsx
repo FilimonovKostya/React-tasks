@@ -1,10 +1,16 @@
 import React, {useState} from "react";
 
-type AccordionProps = {
+type AccordionPropsType = {
     title: string
+    items: ItemType[] // равносильна Array<string>
+    onClick: (value: any) => void
+}
+type ItemType = {
+    title: string
+    value: any
 }
 
-export function UnAccordion(props: AccordionProps) {
+export function UnAccordion(props: AccordionPropsType) {
 
     let [collapsed, setCollapsed] = useState(false)
 
@@ -14,24 +20,32 @@ export function UnAccordion(props: AccordionProps) {
 
     return <div>
         <AccordionTitle message={props.title} onClick={collapsedMenu}/>
-        {collapsed && <AccordionBody/>}
+        {collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
     </div>
 }
 
 type AccordionTitleProps = {
     message: string
     onClick: () => void
+
 }
 
 export function AccordionTitle(props: AccordionTitleProps) {
-    return <div><h3 onClick={props.onClick}>-- {props.message} --</h3> </div>
+    return <div><h3 onClick={props.onClick}>-- {props.message} --</h3></div>
 }
 
-export function AccordionBody() {
+type AccordionBodyPropsType = {
+    items: ItemType[]
+    onClick: (value: any) => void
+}
+
+export function AccordionBody(props: AccordionBodyPropsType) {
     return <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        {
+            props.items.map((items, index) => <li onClick={() => {
+                props.onClick(items.value)
+            }} key={index}> {items.title} </li>)
+        }
     </ul>
 }
 

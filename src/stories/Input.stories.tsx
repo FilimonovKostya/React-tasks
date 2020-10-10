@@ -52,7 +52,7 @@ export const ControlledSelect = () => {
     return <select value={parentValue} onChange={onChangeHandler}>
         <option>None</option>
         <option value="1">Minsk</option>
-        <option value="2">Mogilev</option>
+        <option value="2">Norway</option>
         <option value="3">Moscow</option>
     </select>
 

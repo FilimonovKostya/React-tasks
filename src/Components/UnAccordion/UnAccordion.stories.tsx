@@ -1,9 +1,15 @@
 import UnAccordion from "./UnAccordion";
 import React from "react";
+import {action} from "@storybook/addon-actions";
 
 export default {
-    title:'Changing Accordion',
+    title: 'Changing Accordion',
     component: UnAccordion
 }
-
-export const ChangingAccordion = () => <UnAccordion title={'Кликни пожалуйста'} />
+const onClickCallBack = action('some item was clicked')
+export const ChangingAccordion = () => <UnAccordion title={'Кликни пожалуйста'}
+                                                    items={[
+                                                        {title: 'Julia', value: 1},
+                                                        {title: 'Liza', value: 2},
+                                                        {title: 'Artem', value: 3},
+                                                        {title: 'Viktor', value: 4},]} onClick={onClickCallBack}/>
