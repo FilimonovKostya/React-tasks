@@ -12,4 +12,4 @@ export const ChangingAccordion = () => <UnAccordion title={'Кликни пож�
                                                         {title: 'Julia', value: 1},
                                                         {title: 'Liza', value: 2},
                                                         {title: 'Artem', value: 3},
-                                                        {title: 'Viktor', value: 4},]} onClick={onClickCallBack}/>
+                                                        {title: 'Viktor', value: 4},]} onClick={(id)=> { alert(`users with id ${id} should be happy` ) }}/>
