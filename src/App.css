@@ -15,13 +15,13 @@ body{
 .element{
   cursor: pointer;
   font-size: 16px;
-  color: blue;
+  color: green;
 }
 
-.selectedElement {
+.styleSelect {
   color: #1ea7fd ;
 
 }
 .error{
-  color: red !important;
+  color: red ;
 }

@@ -6,7 +6,7 @@ type ItemType = {
     value: any
 }
 type SelectPropsType = {
-    value: any
+    valueId: any
     onChange: (value: any) => void
     items: ItemType[]
 }
@@ -14,17 +14,18 @@ type SelectPropsType = {
 function Select(props: SelectPropsType) {
     const [collapsed, setCollapsed] = useState(true)
 
+    const styleSelect = props.items.find( f=> f.value === props.valueId ) ? 'styleSelect' : 'error'
 
+    const element = props.items.find(f => f.value === props.valueId)
+    const arrayElements = props.items.map((f, index) => <div key={index}
+                                                             className={f.value === props.valueId ? 'styleSelect' : 'error'}> {f.title} </div>)
 
-    const element = props.items.find(f => f.value === props.value)
-
-
-
+    const onClickHandler = () => setCollapsed(!collapsed)
 
     return (
         <div className={'select'}>
-            <div className={'element'} onClick={() => setCollapsed(!collapsed)}> {element && element.title} </div>
-            <div >{collapsed && props.items.map(f=> <div className={props.value === props.items ? 'selectedElement' : ''}> {f.title} </div>)}</div>
+            <div className={'element'} onClick={onClickHandler}> {element && element.title} </div>
+            {collapsed && arrayElements}
         </div>
     );
 }

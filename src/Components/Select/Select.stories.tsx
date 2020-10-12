@@ -6,8 +6,7 @@ export default {
     component: Select
 }
 
-export const MySelect = () => <Select value={3}
-                                      onChange={()=> console.log('заглушка')}
+export const MySelect = () => <Select valueId={3} onChange={() => console.log('Заглушка')}
                                       items={[
                                           {title: 'Julia', value: 1},
                                           {title: 'Liza', value: 2},
