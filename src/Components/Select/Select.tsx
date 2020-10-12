@@ -1,20 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
+import '../../App.css';
 
 type ItemType = {
-    title:string
-    value:any
+    title: string
+    value: any
 }
 type SelectPropsType = {
-    value:any
-    onChange:(value: any) => void
-    items:ItemType[]
+    value: any
+    onChange: (value: any) => void
+    items: ItemType[]
 }
+
 function Select(props: SelectPropsType) {
+    const [collapsed, setCollapsed] = useState(true)
+
+
+
+    const element = props.items.find(f => f.value === props.value)
+
+
+
+
     return (
-       <div>
-           <div> {props.value} </div>
-           {props.items.map(i => <div> {i.title} </div>)}
-       </div>
+        <div className={'select'}>
+            <div className={'element'} onClick={() => setCollapsed(!collapsed)}> {element && element.title} </div>
+            <div >{collapsed && props.items.map(f=> <div className={props.value === props.items ? 'selectedElement' : ''}> {f.title} </div>)}</div>
+        </div>
     );
 }
 
