@@ -1,27 +1,44 @@
-body{
+body {
   padding: 10px;
 }
 
-.app{
+.app {
   width: 600px;
   margin: 20px auto;
 }
 
-.select{
+.select {
+  position: relative;
   width: 150px;
-  border: 2px solid coral;
+  border: 2px solid #7cdca5;
+  background-color: #e8e8e8;
 }
 
-.element{
+.select:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #007bff transparent transparent transparent;
+  transform: rotate(0deg);
+  cursor: pointer;
+}
+
+.element {
   cursor: pointer;
   font-size: 16px;
-  color: green;
+  color: #1ea7fd;
 }
 
 .styleSelect {
-  color: #1ea7fd ;
-
+  color: white;
+  background-color: #1ea7fd;
 }
-.error{
-  color: red ;
+.hover:hover{
+  background-color: #1ea7fd;
+  color: white;
 }
