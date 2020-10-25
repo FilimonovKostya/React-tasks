@@ -17,18 +17,21 @@ function Select(props: SelectPropsType) {
     const element = props.items.find(f => f.value === props.valueId)
     const arrayElements = props.items.map((f, index) => {
 
-        return <div key={index} className={f.value === props.valueId ? "styleSelect" : 'hover'} onClick={()=>{props.onChange(f.value); setCollapsed(false)} }> {f.title} </div>
+        return <div key={index} className={f.value === props.valueId ? "styleSelect" : 'hover'} onClick={() => {
+            props.onChange(f.value);
+            setCollapsed(false)
+        }}> {f.title} </div>
     })
 
     const onClickHandler = () => setCollapsed(!collapsed)
-    const onBlurHandler = (e:FocusEvent<HTMLInputElement>) => {
-       if( e.target.tagName === 'div') {
-           return alert('dada')
-       }
+    const onBlurHandler = (e: FocusEvent<HTMLInputElement>) => {
+        if (e.target.tagName === 'div') {
+            return alert('dada')
+        }
     }
     return (
         <div className={'select'}>
-            <div className={'element'} onClick={onClickHandler} onBlur={onBlurHandler} > {element && element.title} </div>
+            <div className={'element'} onClick={onClickHandler} onBlur={onBlurHandler}> {element && element.title} </div>
             {collapsed && arrayElements}
         </div>
     );

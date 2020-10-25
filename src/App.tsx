@@ -1,17 +1,15 @@
-import React from 'react';
-import './App.css';
-import Select from "./Components/Select/Select";
-
+import React from "react";
+import "./App.css";
+import UnAccordion from "./Components/UnAccordion/UnAccordion";
 
 function App() {
-    return <div>
-        <Select valueId={2} onChange={() => console.log('заглушка')} items={[
-            {title: 'Julia', value: 1},
-            {title: 'Liza', value: 2},
-            {title: 'Artem', value: 3},
-            {title: 'Viktor', value: 4},]}/>
-    </div>
-}
+    return (
+        <div>
 
+        <UnAccordion title={'Users'} items={[{value: 1, title:'da'}, {value: 2 , title:'dadad'} ]} onClick={()=>console.log(10)} />
+
+        </div>
+    );
+}
 
 export default App;

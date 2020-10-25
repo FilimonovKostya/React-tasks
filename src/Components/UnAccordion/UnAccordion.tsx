@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
+import {reducer} from "./reducer";
 
 type AccordionPropsType = {
     title: string
@@ -11,16 +12,11 @@ type ItemType = {
 }
 
 export function UnAccordion(props: AccordionPropsType) {
-
-    let [collapsed, setCollapsed] = useState(false)
-
-    function collapsedMenu() {
-        setCollapsed(!collapsed)
-    }
+    let [state, dispatch] = React.useReducer(reducer, { collapsed: false })
 
     return <div>
-        <AccordionTitle message={props.title} onClick={collapsedMenu}/>
-        {collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
+        <AccordionTitle message={props.title} onClick={() =>  dispatch({type: 'TOGGLE-COLLAPSED'})}/>
+        {!state.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
     </div>
 }
 
