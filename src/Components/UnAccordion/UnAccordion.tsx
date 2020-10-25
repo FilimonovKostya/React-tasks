@@ -45,4 +45,4 @@ export function AccordionBody(props: AccordionBodyPropsType) {
     </ul>
 }
 
-export default UnAccordion
+export default React.memo(UnAccordion)

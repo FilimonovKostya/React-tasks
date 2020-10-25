@@ -6,7 +6,8 @@ type AccordionProps = {
 
 }
 
-export function Accordion(props: AccordionProps) {
+function  Accordion(props: AccordionProps) {
+    console.log('Accordion Rendering')
     return <div>
         <AccordionTitle message={props.title} />
         {props.collapse && <AccordionBody/>}
@@ -20,10 +21,12 @@ type AccordionTitleProps = {
 }
 
 function AccordionTitle(props: AccordionTitleProps) {
+    console.log('AccordionTitle Rendering')
     return <h3 >-- {props.message} --</h3>
 }
 
 function AccordionBody() {
+    console.log('AccordionBody Rendering')
     return <ul>
         <li>1</li>
         <li>2</li>
@@ -31,3 +34,4 @@ function AccordionBody() {
     </ul>
 }
 
+export default React.memo(Accordion)

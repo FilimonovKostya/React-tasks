@@ -34,4 +34,4 @@ function Star(props:StarPropsType) {
     </>
 }
 
-export default Rating
+export default React.memo(Rating)

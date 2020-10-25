@@ -6,7 +6,7 @@ type OnProps = {
 }
 
 
-export function OnOff(props: OnProps) {
+ function OnOff(props: OnProps) {
 
     const wrapperStyle = {
         display: 'flex',
@@ -47,3 +47,4 @@ export function OnOff(props: OnProps) {
     </div>
 }
 
+export default React.memo(OnOff)

@@ -11,7 +11,7 @@ const starStyle = {
     color: '#ff070e'
 }
 
-export function UnRating() {
+function UnRating() {
 
     let [star,setStar] = useState(0)
 
@@ -33,4 +33,4 @@ function Star(props: StarProps) {
     </>
 }
 
-export default UnRating
+export default React.memo(UnRating)

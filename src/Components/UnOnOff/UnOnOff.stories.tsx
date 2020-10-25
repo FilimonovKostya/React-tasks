@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {UnOnOff} from "./UnOnOff";
+import UnOnOff from "./UnOnOff";
 
 export default {
     title: 'Changing UnOff',

@@ -37,5 +37,5 @@ function Select(props: SelectPropsType) {
     );
 }
 
-export default Select;
+export default React.memo(Select);
 

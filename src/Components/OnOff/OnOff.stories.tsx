@@ -1,4 +1,4 @@
-import {OnOff} from "./OnOff";
+import OnOff from "./OnOff";
 import React from "react";
 
 export default  {
