@@ -7,7 +7,6 @@ type OnProps = {
 
 
  function OnOff(props: OnProps) {
-
     const wrapperStyle = {
         display: 'flex',
         padding: '10px'
