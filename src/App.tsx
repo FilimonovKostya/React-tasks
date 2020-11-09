@@ -1,13 +1,12 @@
 import React from "react";
 import "./App.css";
 import UnAccordion from "./Components/UnAccordion/UnAccordion";
+import Clock from "./Components/Clock/Clock";
 
 function App() {
     return (
         <div>
-
-        <UnAccordion title={'Users'} items={[{value: 1, title:'da'}, {value: 2 , title:'dadad'} ]} onClick={()=>console.log(10)} />
-
+            <Clock/>
         </div>
     );
 }
