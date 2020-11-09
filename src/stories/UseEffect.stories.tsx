@@ -32,8 +32,8 @@ export const SimpleExam1 = () => {
 }
 
 export const SetTimeoutExample = () => {
-    const [counter, setCounter] = useState(0)
-    const [fake, setFake] = useState(0)
+
+    let [time,setTime] = useState(0)
 
     console.log('SetTimeoutExample')
 
@@ -45,12 +45,14 @@ export const SetTimeoutExample = () => {
 
     setTimeout(() => {
         setInterval(() => {
-            setCounter(state => new Date().getDate())
+            let dateTime = new Date()
+            setTime(dateTime.getDate())
+            console.log(dateTime)
         })
     },1000)
 
     return <>
-       Time : {counter}
+       Time : {time}
     </>
 }
 
