@@ -1,25 +1,28 @@
 import React, {useEffect} from "react";
 
-function Clock() {
-    let [time, setTime] = React.useState('')
+type PropsType = {}
 
+const get2digitsString = (number: number) => number < 10 ? '0' + number : number
 
-        setTimeout(() => {
-            setInterval(() => {
-                let dateTime = new Date()
-                setTime(dateTime.toLocaleTimeString())
-            }, 1000)
+export const Clock: React.FC<PropsType> = (props) => {
+    const [date, setDate] = React.useState(new Date())
+
+    useEffect(() => {
+      const intervalID =  setInterval(() => {
+            setDate(new Date())
         }, 1000)
 
+        return () => {
+            clearInterval(intervalID)
+        }
+    }, [])
 
-    console.log(time)
 
     return <div>
-
-        time : {time}
-
+        <span>{get2digitsString(new Date().getHours())}</span>
+        :
+        <span>{get2digitsString(new Date().getMinutes())}</span>
+        :
+        <span>{get2digitsString(new Date().getSeconds())}</span>
     </div>
-
 }
-
-export default Clock
