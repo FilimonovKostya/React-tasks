@@ -1,12 +1,10 @@
 import React, {useEffect} from "react";
 import style from './CleverClock.module.css'
-import {log} from "util";
 
 function CleverClock() {
-    const [deg, setDeg] = React.useState(6)
+    const deg = 6
 
-
-    const [day, setDay] = React.useState(new Date())
+    const day = new Date()
     const [hh, setHh] = React.useState(day.getHours() * 30)
     const [mm, setMm] = React.useState(day.getMinutes() * deg)
     const [ss, setSs] = React.useState(day.getSeconds() * deg)
