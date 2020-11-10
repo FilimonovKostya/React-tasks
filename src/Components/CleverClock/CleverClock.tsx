@@ -1,7 +1,13 @@
 import React, {useEffect} from "react";
 import style from './CleverClock.module.css'
+import {AnalogClock} from "./AnalogClock";
 
-function CleverClock() {
+type CleverClockPropsType = {
+    digitalVersion: boolean
+}
+
+function CleverClock(props:CleverClockPropsType) {
+
     const deg = 6
 
     const day = new Date()
@@ -14,6 +20,7 @@ function CleverClock() {
             setSs(new Date().getSeconds() * deg)
             setMm(new Date().getMinutes() * deg)
             setHh(new Date().getHours() * 30)
+
             return () => {
                 clearInterval(time)
             }
@@ -34,17 +41,22 @@ function CleverClock() {
     }
 
 
-    return <div className={style.clock}>
-        <div className={style.hour}>
-            <div className={style.hr} id={'hr'} style={styleHr}/>
+    return props.digitalVersion ?
+        <div className={style.clock}>
+            <div className={style.hour}>
+                <div className={style.hr} id={'hr'} style={styleHr}/>
+            </div>
+            <div className={style.min}>
+                <div className={style.mn} id={'mn'} style={styleMn}/>
+            </div>
+            <div className={style.sec}>
+                <div className={style.sc} id={'sc'} style={styleSs}/>
+            </div>
         </div>
-        <div className={style.min}>
-            <div className={style.mn} id={'mn'} style={styleMn}/>
-        </div>
-        <div className={style.sec}>
-            <div className={style.sc} id={'sc'} style={styleSs}/>
-        </div>
-    </div>
+
+        : <AnalogClock/>
+
 }
+
 
 export default CleverClock

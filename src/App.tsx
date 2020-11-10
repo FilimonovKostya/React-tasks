@@ -6,7 +6,7 @@ import CleverClock from "./Components/CleverClock/CleverClock";
 function App() {
     return (
         <div>
-            <CleverClock/>
+            <CleverClock digitalVersion={true}/>
         </div>
     );
 }
